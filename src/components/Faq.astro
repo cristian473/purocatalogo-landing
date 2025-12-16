@@ -1,0 +1,159 @@
+---
+---
+<section id="faq" class="section bg-white dark:bg-secondary-950">
+  <div class="container-custom">
+    <div class="text-center max-w-3xl mx-auto mb-16">
+      <span class="inline-block px-4 py-1 rounded-full bg-primary-100 dark:bg-primary-900/50 text-primary-600 dark:text-primary-300 font-medium text-sm mb-4">
+        Preguntas Frecuentes
+      </span>
+      <h2 class="mb-6 text-secondary-900 dark:text-white">¿Tenés dudas? Te las resolvemos</h2>
+      <p class="text-secondary-600 dark:text-secondary-300">
+        Encontrá respuestas a las preguntas más comunes sobre PuroCatálogo.
+      </p>
+    </div>
+    
+    <div class="max-w-3xl mx-auto" x-data="{ activeItem: null }">
+      <div class="space-y-4">
+        <!-- FAQ Item 1 -->
+        <div class="border border-secondary-200 dark:border-secondary-700 rounded-xl overflow-hidden scroll-reveal">
+          <button 
+            @click="activeItem = activeItem === 1 ? null : 1"
+            class="w-full px-6 py-4 text-left flex items-center justify-between bg-white dark:bg-secondary-900 hover:bg-secondary-50 dark:hover:bg-secondary-800 transition-colors"
+          >
+            <span class="font-semibold text-secondary-900 dark:text-white">¿Qué es PuroCatálogo?</span>
+            <svg 
+              class="w-5 h-5 text-secondary-500 transition-transform duration-300"
+              :class="{ 'rotate-180': activeItem === 1 }"
+              fill="none" stroke="currentColor" viewBox="0 0 24 24"
+            >
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path>
+            </svg>
+          </button>
+          <div 
+            x-show="activeItem === 1"
+            x-transition:enter="transition ease-out duration-200"
+            x-transition:enter-start="opacity-0 -translate-y-2"
+            x-transition:enter-end="opacity-100 translate-y-0"
+            class="px-6 py-4 bg-secondary-50 dark:bg-secondary-800/50"
+          >
+            <p class="text-secondary-600 dark:text-secondary-300">
+              PuroCatálogo es una plataforma que te permite crear catálogos digitales profesionales para tu negocio. Subís tus productos, personalizás el diseño y compartís el enlace con tus clientes. Es la forma más fácil de mostrar y vender tus productos online.
+            </p>
+          </div>
+        </div>
+        
+        <!-- FAQ Item 2 -->
+        <div class="border border-secondary-200 dark:border-secondary-700 rounded-xl overflow-hidden scroll-reveal delay-100">
+          <button 
+            @click="activeItem = activeItem === 2 ? null : 2"
+            class="w-full px-6 py-4 text-left flex items-center justify-between bg-white dark:bg-secondary-900 hover:bg-secondary-50 dark:hover:bg-secondary-800 transition-colors"
+          >
+            <span class="font-semibold text-secondary-900 dark:text-white">¿Cuánto cuesta usar PuroCatálogo?</span>
+            <svg 
+              class="w-5 h-5 text-secondary-500 transition-transform duration-300"
+              :class="{ 'rotate-180': activeItem === 2 }"
+              fill="none" stroke="currentColor" viewBox="0 0 24 24"
+            >
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path>
+            </svg>
+          </button>
+          <div 
+            x-show="activeItem === 2"
+            x-transition:enter="transition ease-out duration-200"
+            x-transition:enter-start="opacity-0 -translate-y-2"
+            x-transition:enter-end="opacity-100 translate-y-0"
+            class="px-6 py-4 bg-secondary-50 dark:bg-secondary-800/50"
+          >
+            <p class="text-secondary-600 dark:text-secondary-300">
+              Tenemos un plan gratuito que te permite crear 1 catálogo con hasta 25 productos. Si necesitás más, nuestro plan Pro cuesta $8.900 ARS/mes e incluye catálogos y productos ilimitados, además de soporte prioritario.
+            </p>
+          </div>
+        </div>
+        
+        <!-- FAQ Item 3 -->
+        <div class="border border-secondary-200 dark:border-secondary-700 rounded-xl overflow-hidden scroll-reveal delay-200">
+          <button 
+            @click="activeItem = activeItem === 3 ? null : 3"
+            class="w-full px-6 py-4 text-left flex items-center justify-between bg-white dark:bg-secondary-900 hover:bg-secondary-50 dark:hover:bg-secondary-800 transition-colors"
+          >
+            <span class="font-semibold text-secondary-900 dark:text-white">¿Necesito saber programar?</span>
+            <svg 
+              class="w-5 h-5 text-secondary-500 transition-transform duration-300"
+              :class="{ 'rotate-180': activeItem === 3 }"
+              fill="none" stroke="currentColor" viewBox="0 0 24 24"
+            >
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path>
+            </svg>
+          </button>
+          <div 
+            x-show="activeItem === 3"
+            x-transition:enter="transition ease-out duration-200"
+            x-transition:enter-start="opacity-0 -translate-y-2"
+            x-transition:enter-end="opacity-100 translate-y-0"
+            class="px-6 py-4 bg-secondary-50 dark:bg-secondary-800/50"
+          >
+            <p class="text-secondary-600 dark:text-secondary-300">
+              ¡Para nada! PuroCatálogo está diseñado para que cualquier persona pueda crear su catálogo sin conocimientos técnicos. Solo tenés que subir tus productos, elegir un diseño y listo.
+            </p>
+          </div>
+        </div>
+        
+        <!-- FAQ Item 4 -->
+        <div class="border border-secondary-200 dark:border-secondary-700 rounded-xl overflow-hidden scroll-reveal delay-300">
+          <button 
+            @click="activeItem = activeItem === 4 ? null : 4"
+            class="w-full px-6 py-4 text-left flex items-center justify-between bg-white dark:bg-secondary-900 hover:bg-secondary-50 dark:hover:bg-secondary-800 transition-colors"
+          >
+            <span class="font-semibold text-secondary-900 dark:text-white">¿Puedo personalizar mi catálogo?</span>
+            <svg 
+              class="w-5 h-5 text-secondary-500 transition-transform duration-300"
+              :class="{ 'rotate-180': activeItem === 4 }"
+              fill="none" stroke="currentColor" viewBox="0 0 24 24"
+            >
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path>
+            </svg>
+          </button>
+          <div 
+            x-show="activeItem === 4"
+            x-transition:enter="transition ease-out duration-200"
+            x-transition:enter-start="opacity-0 -translate-y-2"
+            x-transition:enter-end="opacity-100 translate-y-0"
+            class="px-6 py-4 bg-secondary-50 dark:bg-secondary-800/50"
+          >
+            <p class="text-secondary-600 dark:text-secondary-300">
+              ¡Sí! Podés elegir colores, subir tu logo, organizar productos por categorías y mucho más. Tu catálogo tendrá la identidad de tu marca.
+            </p>
+          </div>
+        </div>
+        
+        <!-- FAQ Item 5 -->
+        <div class="border border-secondary-200 dark:border-secondary-700 rounded-xl overflow-hidden scroll-reveal delay-400">
+          <button 
+            @click="activeItem = activeItem === 5 ? null : 5"
+            class="w-full px-6 py-4 text-left flex items-center justify-between bg-white dark:bg-secondary-900 hover:bg-secondary-50 dark:hover:bg-secondary-800 transition-colors"
+          >
+            <span class="font-semibold text-secondary-900 dark:text-white">¿Cómo recibo los pedidos de mis clientes?</span>
+            <svg 
+              class="w-5 h-5 text-secondary-500 transition-transform duration-300"
+              :class="{ 'rotate-180': activeItem === 5 }"
+              fill="none" stroke="currentColor" viewBox="0 0 24 24"
+            >
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path>
+            </svg>
+          </button>
+          <div 
+            x-show="activeItem === 5"
+            x-transition:enter="transition ease-out duration-200"
+            x-transition:enter-start="opacity-0 -translate-y-2"
+            x-transition:enter-end="opacity-100 translate-y-0"
+            class="px-6 py-4 bg-secondary-50 dark:bg-secondary-800/50"
+          >
+            <p class="text-secondary-600 dark:text-secondary-300">
+              Es muy simple: tu cliente navega tu catálogo, agrega los productos que le interesan al carrito y, cuando está listo, ingresa su nombre y confirma el pedido. ¡Listo! El pedido te llega directamente a tu WhatsApp en un chat con el cliente, donde podés coordinar el pago y la entrega de forma personal y directa.
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>

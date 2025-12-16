@@ -47,7 +47,7 @@ const allPages = [
         </svg>
       </button>
       
-      <a href="https://admin.purocatalogo.com/register" class="hidden sm:inline-flex btn-primary">Comenzar Gratis</a>
+      <a href="https://admin.purocatalogo.com/register" class="hidden sm:inline-flex btn-primary" onclick="window.trackEvent && window.trackEvent('cta_click', {cta_location: 'header', cta_text: 'Comenzar Gratis'})">Comenzar Gratis</a>
       
       <!-- Mobile Menu Button and Dropdown -->
       <div x-data="{ open: false }">
@@ -80,7 +80,7 @@ const allPages = [
           <a href="#pricing" class="block px-4 py-2 text-sm text-secondary-700 dark:text-secondary-300 hover:bg-secondary-100 dark:hover:bg-secondary-800">Precios</a>
           <a href="#contact" class="block px-4 py-2 text-sm text-secondary-700 dark:text-secondary-300 hover:bg-secondary-100 dark:hover:bg-secondary-800">Contacto</a>
           <div class="border-t border-gray-200 dark:border-gray-700 mt-2 pt-2 px-4 pb-2">
-             <a href="https://admin.purocatalogo.com/register" class="btn-primary w-full text-center text-sm py-2">Comenzar Gratis</a>
+             <a href="https://admin.purocatalogo.com/register" class="btn-primary w-full text-center text-sm py-2" onclick="window.trackEvent && window.trackEvent('cta_click', {cta_location: 'mobile_menu', cta_text: 'Comenzar Gratis'})">Comenzar Gratis</a>
           </div>
         </div>
       </div>
