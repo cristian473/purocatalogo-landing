@@ -85,8 +85,28 @@ document.addEventListener('astro:before-preparation', ({ from, to, direction }) 
   }
 });
 
-// Apply direction-specific transitions
+// Apply direction-specific transitions and Scroll Reveal
 document.addEventListener('astro:page-load', () => {
+  // Scroll Reveal Animation using IntersectionObserver
+  const observerOptions = {
+    root: null,
+    rootMargin: '0px',
+    threshold: 0.1
+  };
+  
+  const observer = new IntersectionObserver((entries, observer) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        entry.target.classList.add('visible');
+        observer.unobserve(entry.target); // Only animate once
+      }
+    });
+  }, observerOptions);
+  
+  document.querySelectorAll('.scroll-reveal').forEach(el => {
+    observer.observe(el);
+  });
+  
   const navDirection = localStorage.getItem('navigationDirection');
   
   if (navDirection) {
