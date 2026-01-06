@@ -1,40 +1,77 @@
 ---
 const plans = [
   {
-    name: "Free",
+    name: "Inicial",
     price: "0",
     currency: "ARS",
-    description: "Recomendado para pequeños negocios",
+    description: "Ideal para validar tu idea o vender pocos ítems.",
     features: [
-      "Hasta 1 catálogo",
-      "Hasta 25 productos",
-      "Visitantes ilimitados",
-      "1 usuario",
-      "Sin comisiones",
-      "Enlace de purocatalogo.com",
-      "Soporte por email"
+      "1 Catálogo",
+      "Hasta 15 productos",
+      "1 Foto por producto",
+      "Enlace personalizado (tumarca.purocatalogo.com)",
+      "Marca de agua de purocatalogo en pie de página",
+      "Soporte básico por email",
+      "Sin comisiones por venta"
     ],
-    cta: "Comenzar Gratis",
+    cta: "Crear cuenta",
     popular: false,
     color: "secondary"
   },
   {
-    name: "Pro",
-    price: "8.900",
+    name: "Emprendedor",
+    price: "11.900",
     currency: "ARS",
-    description: "Para negocios que quieren crecer en Argentina",
+    description: "Para tiendas de Instagram y Showrooms.",
     features: [
-      "Catálogos Ilimitados",
-      "Productos Ilimitados",
-      "Visitantes Ilimitados",
-      "Colaboradores Ilimitados",
-      "Sin comisiones",
-      "Enlace personalizado",
-      "Soporte prioritario"
+      "Todo lo incluido en Inicial",
+      "1 Catálogo",
+      "Hasta 50 productos",
+      "3 Fotos por producto",
+      "Enlace personalizado (tumarca.purocatalogo.com)",
+      "Acortador de enlaces para redes sociales",
+      "Botón de WhatsApp directo",
     ],
-    cta: "Elegir Pro",
-    popular: true,
+    cta: "Comenzar Plan",
+    popular: false,
     color: "primary"
+  },
+  {
+    name: "Negocio Pro",
+    price: "29.900",
+    currency: "ARS",
+    description: "Automatización y fidelización de clientes.",
+    features: [
+      "Todo lo incluido en Emprendedor",
+      "Hasta 2 catálogos",
+      "Hasta 100 productos",
+      "5 Fotos por producto + Video",
+      "Enlace personalizado (tumarca.com)",
+      "Módulos y funcionalidades extras (Formularios, newsletter, etc.)"
+    ],
+    cta: "Mejorar mi Negocio",
+    popular: true,
+    color: "accent"
+  },
+  {
+    name: "Empresa",
+    price: "79.900",
+    currency: "ARS",
+    description: "Tu catálogo llave en mano. Nosotros trabajamos.",
+    features: [
+      "Todo lo incluido en Negocio Pro",
+      "Catalogos y productos ilimitados",
+      "Fotos del producto ilimitadas",
+      "Diseño gráfico de banners incluido",
+      "Enlace personalizado, (tumarca.com)",
+      "Configuración inicial del sitio (Banner, Logo, etc.)",
+      "Gestor del sitio dedicado",
+      "Carga inicial de hasta 50 productos",
+      "Soporte prioritario por WhatsApp"
+    ],
+    cta: "Solicitar Servicio",
+    popular: false,
+    color: "secondary"
   }
 ];
 ---
@@ -45,48 +82,58 @@ const plans = [
       <span class="inline-block px-4 py-1 rounded-full bg-accent-100 dark:bg-accent-900/50 text-accent-700 dark:text-accent-300 font-medium text-sm mb-4">
         Planes y Precios
       </span>
-      <h2 class="mb-6 text-secondary-900 dark:text-white">Planes para cada necesidad</h2>
+      <h2 class="mb-6 text-secondary-900 dark:text-white">Escala tu negocio a tu ritmo</h2>
       <p class="text-secondary-600 dark:text-secondary-300">
-        Comienza gratis y escala cuando lo necesites. Sin costos ocultos.
+        Desde herramientas básicas hasta soluciones completas "llave en mano".
       </p>
     </div>
     
-    <div class="grid md:grid-cols-2 gap-8 max-w-4xl mx-auto">
+    {/* CAMBIO AQUI: max-w-7xl para dar espacio a 4 cards y grid adaptativo */}
+    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 max-w-7xl mx-auto">
       {plans.map((plan, index) => (
         <div 
-          class={`card p-8 border ${plan.popular ? `border-${plan.color}-500 dark:border-${plan.color}-400 ring-4 ring-${plan.color}-500/10` : 'border-secondary-200 dark:border-secondary-700'} slide-up relative transition-transform duration-300 hover:-translate-y-2`}
+          class={`card flex flex-col p-6 border ${plan.popular ? `border-${plan.color}-500 dark:border-${plan.color}-400 ring-4 ring-${plan.color}-500/10` : 'border-secondary-200 dark:border-secondary-700'} slide-up relative transition-transform duration-300 hover:-translate-y-2`}
           style={`animation-delay: ${index * 150}ms`}
         >
           {plan.popular && (
-            <div class={`absolute top-0 right-0 bg-${plan.color}-500 text-white px-4 py-1 text-sm font-medium rounded-bl-lg`}>
-              Más Popular
+            <div class={`absolute top-0 right-0 bg-${plan.color}-500 text-white px-3 py-1 text-xs font-bold uppercase tracking-wide rounded-bl-lg shadow-sm`}>
+              Más Elegido
             </div>
           )}
           
-          <h3 class="text-2xl font-bold mb-2 text-secondary-900 dark:text-white">{plan.name}</h3>
-          <p class="text-secondary-600 dark:text-secondary-300 mb-6 h-12">{plan.description}</p>
-          
-          <div class="mb-8">
-            <span class="text-4xl font-bold text-secondary-900 dark:text-white">${plan.price}</span>
-            <span class="text-secondary-500 dark:text-secondary-400 font-medium ml-2">{plan.currency}/MES</span>
+          <div class="mb-4">
+             <h3 class={`text-xl font-bold text-secondary-900 dark:text-white`}>{plan.name}</h3>
+             <p class="text-sm text-secondary-600 dark:text-secondary-400 mt-2 h-10 leading-snug">{plan.description}</p>
           </div>
           
-          <ul class="space-y-4 mb-8">
+          <div class="mb-6 pb-6 border-b border-secondary-100 dark:border-secondary-800">
+            <div class="flex items-baseline">
+              <span class="text-3xl font-extrabold text-secondary-900 dark:text-white">${plan.price}</span>
+              {plan.price !== "0" && <span class="text-secondary-500 dark:text-secondary-400 text-sm font-medium ml-1">/{plan.currency}</span>}
+            </div>
+            {plan.price !== "0" 
+              ? <span class="text-xs text-secondary-400 block mt-1">Facturado mensualmente</span> 
+              : <span class="text-xs text-secondary-400 block mt-1">No hay cobro mensual</span>
+            }
+          </div>
+          
+          {/* flex-grow empuja el botón al final para que todas las cards se alineen */}
+          <ul class="space-y-3 mb-8 flex-grow">
             {plan.features.map(feature => (
-              <li class="flex items-start">
-                <div class={`rounded-full p-1 bg-${plan.popular ? 'primary' : 'secondary'}-100 dark:bg-${plan.popular ? 'primary' : 'secondary'}-900/30 mr-3 mt-0.5`}>
-                   <svg class={`w-4 h-4 text-${plan.popular ? 'primary' : 'secondary'}-600 dark:text-${plan.popular ? 'primary' : 'secondary'}-400`} fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+              <li class="flex items-start text-sm">
+                <div class={`flex-shrink-0 rounded-full p-0.5 bg-${plan.color}-100 dark:bg-${plan.color}-900/30 mr-2 mt-0.5`}>
+                   <svg class={`w-3.5 h-3.5 text-${plan.color}-600 dark:text-${plan.color}-400`} fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
                     <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
                   </svg>
                 </div>
-                <span class="text-secondary-700 dark:text-secondary-300">{feature}</span>
+                <span class="text-secondary-700 dark:text-secondary-300 leading-tight">{feature}</span>
               </li>
             ))}
           </ul>
           
           <a 
-            href="https://admin.purocatalogo.com/register" 
-            class={`w-full btn ${plan.popular ? 'btn-primary' : 'btn-outline'}`}
+            href={plan.price === "58.899" ? "https://wa.me/TU_NUMERO" : "https://admin.purocatalogo.com/register"} 
+            class={`w-full btn py-2.5 text-center justify-center ${plan.popular ? 'btn-primary' : 'btn-outline'}`}
             onclick={`window.trackEvent && window.trackEvent('cta_click', {cta_location: 'pricing', cta_text: '${plan.cta}', plan_name: '${plan.name}'})`}
           >
             {plan.cta}
