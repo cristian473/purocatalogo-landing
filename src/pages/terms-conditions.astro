@@ -2,21 +2,24 @@
 import Layout from '../layouts/Layout.astro';
 import Header from '../components/Header.astro';
 import Footer from '../components/Footer.astro';
-import HeroSection from '../components/HeroSection.astro';
 ---
 
-<Layout title="Términos y Condiciones - PuroCatálogo">
+<Layout 
+  title="Términos y Condiciones - PuroCatálogo"
+  description="Leé los términos y condiciones de uso de la plataforma PuroCatálogo. Información sobre registro, responsabilidades y políticas del servicio."
+>
   <Header />
-  <main>
-    <HeroSection 
-      title="Términos y Condiciones" 
-      highlightText="Términos"
-      description="Por favor leé estos términos y condiciones cuidadosamente antes de usar nuestro servicio."
-    />
+  <main id="main-content">
+    <section class="pt-24 pb-12 bg-background-subtle">
+      <div class="container-custom text-center">
+        <h1 class="text-text-main mb-4">Términos y Condiciones</h1>
+        <p class="text-text-muted text-lg">Por favor leé estos términos y condiciones cuidadosamente antes de usar nuestro servicio.</p>
+      </div>
+    </section>
     
-    <section class="py-12 bg-white dark:bg-gray-800">
+    <section class="py-12 bg-white">
       <div class="container-custom">
-        <div class="prose prose-lg dark:prose-invert max-w-4xl mx-auto">
+        <div class="prose prose-lg max-w-4xl mx-auto">
           <h2>1. Introducción</h2>
           <p>
             Bienvenido a PuroCatálogo. Estos Términos y Condiciones rigen el uso de nuestro sitio web y servicios. Al acceder o utilizar nuestros servicios, aceptás estar sujeto a estos Términos.
@@ -74,4 +77,3 @@ import HeroSection from '../components/HeroSection.astro';
   </main>
   <Footer />
 </Layout>
- 

@@ -1,0 +1,80 @@
+---
+const useCases = [
+  {
+    title: "Emprendedores y Showrooms",
+    quote: "Estoy cansada de mandar fotos sueltas por WhatsApp.",
+    solution: "Un link profesional para tu bio. Armás el catálogo desde el celular en minutos y empezás a vender gratis.",
+    tag: "Agilidad",
+    image: "https://images.unsplash.com/photo-1556740738-b6a63e27c4df?auto=format&fit=crop&q=80&w=800",
+    imageAlt: "Emprendedora organizando productos en su showroom"
+  },
+  {
+    title: "PyMEs y Mayoristas",
+    quote: "Tengo 500 productos y mi vendedor sigue mandando PDFs.",
+    solution: "Login de clientes, listas de precios diferenciadas y panel para todo tu equipo. Control total sin complejidad.",
+    tag: "Robustez",
+    image: "https://images.unsplash.com/photo-1553413077-190dd305871c?auto=format&fit=crop&q=80&w=800",
+    imageAlt: "Almacén mayorista con productos organizados en estantes"
+  },
+  {
+    title: "Grandes Empresas",
+    quote: "Necesitamos que se integre con nuestro sistema y que no se caiga nunca.",
+    solution: "API propia, marca blanca y un equipo que se encarga de que todo funcione. Soporte dedicado incluido.",
+    tag: "Corporativo",
+    image: "https://images.unsplash.com/photo-1497366216548-37526070297c?auto=format&fit=crop&q=80&w=800",
+    imageAlt: "Oficina corporativa moderna con equipo de trabajo"
+  }
+];
+---
+
+<section id="examples" class="py-20 bg-white">
+  <div class="px-8 md:px-16 lg:px-24 max-w-[1440px] mx-auto">
+    <div class="text-center mb-12">
+      <p class="text-[10px] font-bold text-primary-500 uppercase tracking-[0.2em] mb-4">Para cada etapa</p>
+      <h2 class="text-4xl font-extrabold text-text-main">No importa el tamaño: PuroCatálogo se adapta.</h2>
+    </div>
+
+    <div class="grid lg:grid-cols-3 gap-8">
+      {useCases.map((useCase) => (
+        <div class="group relative bg-white rounded-3xl overflow-hidden border border-secondary-100 flex flex-col h-full shadow-lg shadow-secondary-200/50 hover:shadow-xl transition-shadow duration-500">
+          <!-- Image Header -->
+          <div class="relative h-48 overflow-hidden">
+            <img
+              src={useCase.image}
+              alt={useCase.imageAlt}
+              class="absolute inset-0 w-full h-full object-cover group-hover:scale-105 transition-transform duration-700"
+              loading="lazy"
+              width="800"
+              height="400"
+            />
+            <div class="absolute inset-0 bg-gradient-to-t from-white to-transparent opacity-80"></div>
+            <div class="absolute top-4 left-4 bg-white/90 px-3 py-1 rounded-full text-xs font-black uppercase tracking-widest text-primary-500 border border-secondary-100 shadow-sm">
+              {useCase.tag}
+            </div>
+          </div>
+
+          <!-- Content -->
+          <div class="p-6 md:p-8 flex-1 flex flex-col relative">
+            <h3 class="text-2xl font-extrabold text-text-main mb-4">
+              {useCase.title}
+            </h3>
+
+            <blockquote class="mb-6 relative italic border-l-0">
+              <span class="absolute -top-3 -left-1 text-4xl text-primary-500/20 font-serif" aria-hidden="true">"</span>
+              <p class="text-text-muted text-base relative z-10 leading-relaxed pl-2">
+                {useCase.quote}
+              </p>
+            </blockquote>
+
+            <div class="mt-auto pt-6 border-t border-secondary-100">
+              <p class="text-sm font-bold text-primary-600 leading-relaxed flex items-start gap-2">
+                <span class="material-symbols-outlined text-lg" aria-hidden="true">arrow_right_alt</span>
+                {useCase.solution}
+              </p>
+            </div>
+          </div>
+        </div>
+      ))}
+    </div>
+  </div>
+</section>

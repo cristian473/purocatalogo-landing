@@ -2,23 +2,113 @@
 import Layout from '../layouts/Layout.astro';
 import Header from '../components/Header.astro';
 import Hero from '../components/Hero.astro';
+import Problem from '../components/Problem.astro';
 import Features from '../components/Features.astro';
+import UseCases from '../components/UseCases.astro';
+import HowItWorks from '../components/HowItWorks.astro';
 import Pricing from '../components/Pricing.astro';
-import Testimonials from '../components/Testimonials.astro';
 import Faq from '../components/Faq.astro';
-import Newsletter from '../components/Newsletter.astro';
 import Footer from '../components/Footer.astro';
+
+const jsonLd = [
+  {
+    "@context": "https://schema.org",
+    "@type": "Organization",
+    "name": "PuroCatálogo",
+    "url": "https://purocatalogo.com",
+    "logo": "https://purocatalogo.com/favicon.svg",
+    "description": "Plataforma de catálogos digitales profesionales para negocios.",
+    "contactPoint": {
+      "@type": "ContactPoint",
+      "contactType": "customer service",
+      "availableLanguage": "Spanish"
+    }
+  },
+  {
+    "@context": "https://schema.org",
+    "@type": "WebSite",
+    "name": "PuroCatálogo",
+    "url": "https://purocatalogo.com"
+  },
+  {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    "mainEntity": [
+      {
+        "@type": "Question",
+        "name": "¿Necesito saber programar?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Para nada. Si sabés usar Instagram, sabés usar PuroCatálogo."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "¿Cobran comisiones por ventas?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "No. Cero comisiones. El 100% de la venta es tuya, siempre."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "¿Cómo pagan mis clientes?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "El pago lo acordás directo con tu cliente: efectivo, transferencia o link de pago. PuroCatálogo no interviene."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "¿Puedo importar mis productos desde Excel?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Sí. Importás tu Excel y en segundos tenés todo cargado. El proceso es guiado paso a paso."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "¿Qué pasa si quiero cambiar de plan?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Podés subir o bajar de plan en cualquier momento desde tu panel. Los cambios se aplican de inmediato."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "¿Puedo usar mi propio dominio?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Sí, desde el plan Negocio Pro podés conectar tu dominio propio (tumarca.com) para que tu catálogo tenga tu identidad completa."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "¿Ofrecen soporte técnico?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Todos los planes incluyen soporte por email. Los planes superiores cuentan con soporte prioritario por WhatsApp y un gestor dedicado."
+        }
+      }
+    ]
+  }
+];
 ---
 
-<Layout title="PuroCatálogo - Crea tu catálogo digital gratis">
+<Layout 
+  title="PuroCatálogo - Tu catálogo digital en minutos. Simple para arrancar, potente para escalar."
+  description="Creá tu catálogo digital en minutos. Sin código, sin comisiones. Recibí pedidos por WhatsApp y vendé con tu propia marca. Probalo gratis."
+  jsonLd={jsonLd}
+>
   <Header />
-  <main>
+  <main id="main-content">
     <Hero />
+    <Problem />
     <Features />
+    <UseCases />
+    <HowItWorks />
     <Pricing />
-    <Testimonials />
     <Faq />
-    <Newsletter />
   </main>
   <Footer />
 </Layout>

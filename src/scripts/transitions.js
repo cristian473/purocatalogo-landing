@@ -21,15 +21,22 @@ document.addEventListener('astro:page-load', () => {
   const parallaxElements = document.querySelectorAll('[data-parallax]');
   
   if (parallaxElements.length > 0) {
+    let ticking = false;
     const handleParallax = () => {
       parallaxElements.forEach(element => {
         const speed = element.getAttribute('data-parallax') || 0.1;
         const yPos = -(window.scrollY * speed);
         element.style.transform = `translateY(${yPos}px)`;
       });
+      ticking = false;
     };
     
-    window.addEventListener('scroll', handleParallax);
+    window.addEventListener('scroll', () => {
+      if (!ticking) {
+        requestAnimationFrame(handleParallax);
+        ticking = true;
+      }
+    }, { passive: true });
   }
   
   // Smooth scroll for anchor links

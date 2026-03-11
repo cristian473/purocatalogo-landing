@@ -1,31 +1,43 @@
 @import 'tailwindcss';
 
-@custom-variant dark (&:is(.dark *));
+
 
 @theme {
+  /* Primary colors - based on mockup */
+  --color-primary: #026aeb;
+  --color-primary-dark: #0051b8;
   --color-primary-50: #f0f7ff;
   --color-primary-100: #e0effe;
   --color-primary-200: #bae3ff;
   --color-primary-300: #7cc4fa;
   --color-primary-400: #36a6f6;
-  --color-primary-500: #036cec;
-  --color-primary-600: #0056bd;
+  --color-primary-500: #026aeb;
+  --color-primary-600: #0051b8;
   --color-primary-700: #004ecc;
   --color-primary-800: #063588;
   --color-primary-900: #090d2e;
   --color-primary-950: #040617;
 
-  --color-secondary-50: #f4f6fb;
-  --color-secondary-100: #e8ecf6;
-  --color-secondary-200: #cdd6eb;
-  --color-secondary-300: #a3b5db;
-  --color-secondary-400: #6f8ec5;
-  --color-secondary-500: #496dae;
-  --color-secondary-600: #355392;
-  --color-secondary-700: #2b4276;
-  --color-secondary-800: #253861;
-  --color-secondary-900: #090d2e;
+  /* Secondary/Slate colors */
+  --color-secondary-50: #f9fafb;
+  --color-secondary-100: #f1f5f9;
+  --color-secondary-200: #e2e8f0;
+  --color-secondary-300: #cbd5e1;
+  --color-secondary-400: #94a3b8;
+  --color-secondary-500: #64748b;
+  --color-secondary-600: #475569;
+  --color-secondary-700: #334155;
+  --color-secondary-800: #1e293b;
+  --color-secondary-900: #0f172a;
   --color-secondary-950: #020617;
+
+  /* Background colors */
+  --color-background-light: #ffffff;
+  --color-background-subtle: #f9fafb;
+
+  /* Text colors */
+  --color-text-main: #0f172a;
+  --color-text-muted: #64748b;
 
   --color-accent-50: #f0f9ff;
   --color-accent-100: #e0f2fe;
@@ -51,8 +63,14 @@
   --color-warning-900: #78350f;
   --color-warning-950: #451a03;
 
-  --font-sans: Inter, system-ui, sans-serif;
-  --font-display: Lexend, system-ui, sans-serif;
+  /* Fonts - Plus Jakarta Sans */
+  --font-sans: 'Plus Jakarta Sans', system-ui, sans-serif;
+  --font-display: 'Plus Jakarta Sans', system-ui, sans-serif;
+
+  /* Letter spacing */
+  --tracking-tightest: -0.04em;
+  --tracking-tighter: -0.02em;
+  --tracking-widest: 0.15em;
 
   --animate-fade-in: fadeIn 0.5s ease-in-out;
   --animate-slide-up: slideUp 0.5s ease-in-out;
@@ -104,64 +122,71 @@
   ::file-selector-button {
     border-color: var(--color-gray-200, currentcolor);
   }
-}
 
-@utility btn {
-  @apply inline-flex items-center justify-center px-6 py-3 rounded-lg font-medium transition-all duration-300 focus:outline-hidden;
-}
+  body {
+    @apply selection:bg-blue-100 selection:text-primary-500 antialiased;
+    letter-spacing: -0.02em;
+  }
 
-@utility btn-primary {
-  @apply btn bg-primary-500 hover:bg-primary-600 text-white shadow-md hover:shadow-lg;
-}
+  h1, h2, h3 {
+    letter-spacing: -0.04em;
+  }
 
-@utility btn-secondary {
-  @apply btn bg-secondary-900 hover:bg-secondary-800 text-white shadow-md hover:shadow-lg;
-}
-
-@utility btn-accent {
-  @apply btn bg-accent-500 hover:bg-accent-600 text-white shadow-md hover:shadow-lg;
-}
-
-@utility btn-outline {
-  @apply btn border-2 border-primary-500 dark:border-primary-400 hover:bg-primary-50 dark:hover:bg-primary-900/20 text-primary-600 dark:text-primary-300;
-}
-
-@utility container-custom {
-  @apply container mx-auto px-4 sm:px-6 lg:px-8 max-w-7xl;
-}
-
-@utility section {
-  @apply py-16 md:py-24;
-}
-
-@utility card {
-  @apply bg-white dark:bg-secondary-900 rounded-xl shadow-md hover:shadow-lg transition-shadow duration-300 overflow-hidden border border-secondary-200 dark:border-secondary-800;
-}
-
-@layer base {
   h1, h2, h3, h4, h5, h6 {
     @apply font-display;
   }
   
   h1 {
-    @apply text-4xl md:text-5xl lg:text-6xl font-bold;
+    @apply text-4xl md:text-5xl lg:text-6xl font-extrabold;
   }
   
   h2 {
-    @apply text-3xl md:text-4xl font-bold;
+    @apply text-3xl md:text-4xl font-extrabold;
   }
   
   h3 {
-    @apply text-2xl md:text-3xl font-semibold;
+    @apply text-xl md:text-2xl font-extrabold;
   }
   
   h4 {
-    @apply text-xl md:text-2xl font-semibold;
+    @apply text-lg md:text-xl font-bold;
   }
   
   p {
-    @apply text-base md:text-lg leading-relaxed;
+    @apply text-base leading-relaxed;
   }
+}
+
+@utility btn {
+  @apply inline-flex items-center justify-center px-6 py-3 font-bold text-xs uppercase tracking-widest transition-colors duration-300;
+}
+
+@utility btn-primary {
+  @apply btn bg-primary-500 hover:bg-primary-dark text-white;
+}
+
+@utility btn-secondary {
+  @apply btn bg-text-main hover:bg-secondary-800 text-white;
+}
+
+@utility btn-accent {
+  @apply btn bg-accent-500 hover:bg-accent-600 text-white;
+}
+
+@utility btn-outline {
+  @apply btn border border-secondary-200 hover:bg-secondary-50 text-text-main;
+}
+
+@utility container-custom {
+  @apply mx-auto px-6 lg:px-8 max-w-[1440px];
+}
+
+@utility section {
+  @apply py-24;
+}
+
+@utility card {
+  @apply bg-white transition-all duration-300 overflow-hidden border border-secondary-200;
 }
 
 /* Animations */
@@ -177,45 +202,14 @@
   @apply animate-slide-down;
 }
 
-/* Scroll Reveal Animations */
-.scroll-reveal {
-  opacity: 0;
-  transform: translateY(30px);
-  transition: all 0.8s cubic-bezier(0.5, 0, 0, 1);
+/* No scrollbar utility */
+.no-scrollbar::-webkit-scrollbar {
+  display: none;
 }
-
-.scroll-reveal.visible {
-  opacity: 1;
-  transform: translateY(0);
+.no-scrollbar {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
 }
-
-.scroll-reveal.fade-in-left {
-  transform: translateX(-30px);
-}
-
-.scroll-reveal.fade-in-right {
-  transform: translateX(30px);
-}
-
-.scroll-reveal.scale-up {
-  transform: scale(0.95);
-}
-
-.scroll-reveal.visible.fade-in-left, 
-.scroll-reveal.visible.fade-in-right {
-  transform: translateX(0);
-}
-
-.scroll-reveal.visible.scale-up {
-  transform: scale(1);
-}
-
-/* Staggered delays */
-.delay-100 { transition-delay: 100ms; }
-.delay-200 { transition-delay: 200ms; }
-.delay-300 { transition-delay: 300ms; }
-.delay-400 { transition-delay: 400ms; }
-.delay-500 { transition-delay: 500ms; }
 
 /* Accessibility */
 .sr-only {
@@ -224,5 +218,8 @@
 
 /* Focus styles for keyboard navigation */
 :focus-visible {
-  @apply outline-hidden ring-2 ring-primary-500 dark:ring-primary-400;
+  @apply outline-hidden ring-2 ring-primary-500;
 }
+
+/* Hide Alpine.js elements before Alpine loads */
+[x-cloak] { display: none !important; }

@@ -2,20 +2,24 @@
 import Layout from '../layouts/Layout.astro';
 import Header from '../components/Header.astro';
 import Footer from '../components/Footer.astro';
-import HeroSection from '../components/HeroSection.astro';
 ---
 
-<Layout title="Política de Privacidad - PuroCatálogo">
+<Layout 
+  title="Política de Privacidad - PuroCatálogo"
+  description="Conocé cómo PuroCatálogo recopila, usa y protege tu información personal. Última actualización: Diciembre 2024."
+>
   <Header />
-  <main>
-    <HeroSection 
-      title="Política de Privacidad" 
-      description="Última actualización: Diciembre 2024"
-    />
+  <main id="main-content">
+    <section class="pt-24 pb-12 bg-background-subtle">
+      <div class="container-custom text-center">
+        <h1 class="text-text-main mb-4">Política de Privacidad</h1>
+        <p class="text-text-muted text-lg">Última actualización: Diciembre 2024</p>
+      </div>
+    </section>
     
     <section class="py-16">
       <div class="container-custom">
-        <div class="max-w-3xl mx-auto prose dark:prose-invert prose-headings:font-display prose-headings:font-semibold prose-a:text-primary-600 dark:prose-a:text-primary-400 prose-img:rounded-lg">
+        <div class="max-w-3xl mx-auto prose prose-headings:font-display prose-headings:font-semibold prose-a:text-primary-600 prose-img:rounded-lg">
           <p class="lead">
             En PuroCatálogo, nos tomamos muy en serio tu privacidad. Esta Política de Privacidad explica cómo recopilamos, usamos, divulgamos y protegemos tu información cuando visitás nuestro sitio web o usás nuestro servicio.
           </p>
@@ -90,4 +94,3 @@ import HeroSection from '../components/HeroSection.astro';
   </main>
   <Footer />
 </Layout>
- 
