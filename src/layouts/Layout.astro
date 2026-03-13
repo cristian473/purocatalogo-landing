@@ -101,16 +101,32 @@ const canonicalUrl = new URL(Astro.url.pathname, siteUrl).href;
     </script>
     <script src="../scripts/transitions.js"></script>
 
-    <!-- Google tag (gtag.js) -->
+    <!-- Google tag (gtag.js) - GA4 + Google Ads -->
     <script async src="https://www.googletagmanager.com/gtag/js?id=G-1CCSV49JQF"></script>
     <script is:inline>
       window.dataLayer = window.dataLayer || [];
       function gtag(){dataLayer.push(arguments);}
       gtag('js', new Date());
       gtag('config', 'G-1CCSV49JQF');
+      gtag('config', 'AW-18014070783');
 
       window.trackEvent = function(eventName, eventParams) {
         gtag('event', eventName, eventParams || {});
+      };
+
+      window.trackConversion = function(url) {
+        gtag('event', 'conversion', {
+          'send_to': 'AW-18014070783',
+          'event_callback': function() {
+            if (url) { window.open(url, '_blank') || (window.location.href = url); }
+          }
+        });
+        // Fallback si el callback no ejecuta en 1s
+        if (url) {
+          setTimeout(function() {
+            window.open(url, '_blank') || (window.location.href = url);
+          }, 1000);
+        }
       };
     </script>
   </body>
