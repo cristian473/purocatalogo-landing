@@ -2,41 +2,49 @@
 const useCases = [
   {
     title: "Emprendedores y Showrooms",
-    quote: "Estoy cansada de mandar fotos sueltas por WhatsApp.",
+    problem: "Mandás fotos sueltas por WhatsApp y perdés el control de precios y stock.",
     solution: "Un link profesional para tu bio. Armás el catálogo desde el celular en minutos y empezás a vender gratis.",
     tag: "Agilidad",
     image: "https://images.unsplash.com/photo-1556740738-b6a63e27c4df?auto=format&fit=crop&q=80&w=800",
-    imageAlt: "Emprendedora organizando productos en su showroom"
+    imageAlt: "Emprendedora organizando productos en su showroom",
+    link: null,
+    linkText: null
   },
   {
     title: "PyMEs y Mayoristas",
-    quote: "Tengo 500 productos y mi vendedor sigue mandando PDFs.",
+    problem: "500 productos, vendedores mandando PDFs y listas desactualizadas.",
     solution: "Login de clientes, listas de precios diferenciadas y panel para todo tu equipo. Control total sin complejidad.",
     tag: "Robustez",
     image: "https://images.unsplash.com/photo-1553413077-190dd305871c?auto=format&fit=crop&q=80&w=800",
-    imageAlt: "Almacén mayorista con productos organizados en estantes"
+    imageAlt: "Almacén mayorista con productos organizados en estantes",
+    link: null,
+    linkText: null
   },
   {
     title: "Grandes Empresas",
-    quote: "Necesitamos que se integre con nuestro sistema y que no se caiga nunca.",
+    problem: "Necesitás integración con tu sistema y que el catálogo no se caiga nunca.",
     solution: "API propia, marca blanca y un equipo que se encarga de que todo funcione. Soporte dedicado incluido.",
     tag: "Corporativo",
     image: "https://images.unsplash.com/photo-1497366216548-37526070297c?auto=format&fit=crop&q=80&w=800",
-    imageAlt: "Oficina corporativa moderna con equipo de trabajo"
+    imageAlt: "Oficina corporativa moderna con equipo de trabajo",
+    link: null,
+    linkText: null
   }
 ];
 ---
 
 <section id="examples" class="py-20 bg-white">
   <div class="px-8 md:px-16 lg:px-24 max-w-[1440px] mx-auto">
-    <div class="text-center mb-12">
-      <p class="text-[10px] font-bold text-primary-500 uppercase tracking-[0.2em] mb-4">Para cada etapa</p>
-      <h2 class="text-4xl font-extrabold text-text-main">No importa el tamaño: PuroCatálogo se adapta.</h2>
+    <div class="flex flex-col md:flex-row justify-between items-baseline mb-12 gap-6">
+      <div class="max-w-xl space-y-4">
+        <p class="text-[10px] font-bold text-primary-500 uppercase tracking-[0.2em]">Para cada etapa</p>
+        <h2 class="text-4xl font-extrabold text-text-main">No importa el tamaño: PuroCatálogo se adapta.</h2>
+      </div>
     </div>
 
     <div class="grid lg:grid-cols-3 gap-8">
       {useCases.map((useCase) => (
-        <div class="group relative bg-white rounded-3xl overflow-hidden border border-secondary-100 flex flex-col h-full shadow-lg shadow-secondary-200/50 hover:shadow-xl transition-shadow duration-500">
+        <div class="group relative bg-white rounded-3xl overflow-hidden border border-secondary-100 flex flex-col h-full shadow-lg shadow-secondary-200/50 hover:shadow-xl hover:border-secondary-200 transition-all duration-500">
           <!-- Image Header -->
           <div class="relative h-48 overflow-hidden">
             <img
@@ -59,18 +67,26 @@ const useCases = [
               {useCase.title}
             </h3>
 
-            <blockquote class="mb-6 relative italic border-l-0">
-              <span class="absolute -top-3 -left-1 text-4xl text-primary-500/20 font-serif" aria-hidden="true">"</span>
-              <p class="text-text-muted text-base relative z-10 leading-relaxed pl-2">
-                {useCase.quote}
-              </p>
-            </blockquote>
+            <p class="text-text-muted text-sm leading-relaxed mb-6 flex items-start gap-2">
+              <span class="material-symbols-outlined text-red-400 text-base mt-0.5 flex-shrink-0" aria-hidden="true">warning</span>
+              {useCase.problem}
+            </p>
 
             <div class="mt-auto pt-6 border-t border-secondary-100">
               <p class="text-sm font-bold text-primary-600 leading-relaxed flex items-start gap-2">
-                <span class="material-symbols-outlined text-lg" aria-hidden="true">arrow_right_alt</span>
+                <span class="material-symbols-outlined text-lg flex-shrink-0" aria-hidden="true">check_circle</span>
                 {useCase.solution}
               </p>
+              {useCase.link && (
+                <a
+                  href={useCase.link}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  class="inline-flex items-center gap-1.5 mt-4 text-xs font-bold text-primary-500 uppercase tracking-widest hover:gap-2.5 transition-all"
+                >
+                  {useCase.linkText} <span class="material-symbols-outlined text-sm" aria-hidden="true">arrow_forward</span>
+                </a>
+              )}
             </div>
           </div>
         </div>

@@ -63,9 +63,9 @@
   --color-warning-900: #78350f;
   --color-warning-950: #451a03;
 
-  /* Fonts - Plus Jakarta Sans */
-  --font-sans: 'Plus Jakarta Sans', system-ui, sans-serif;
-  --font-display: 'Plus Jakarta Sans', system-ui, sans-serif;
+  /* Fonts - DM Sans (body) + Instrument Sans (display/headings) */
+  --font-sans: 'DM Sans', system-ui, sans-serif;
+  --font-display: 'Instrument Sans', 'DM Sans', system-ui, sans-serif;
 
   /* Letter spacing */
   --tracking-tightest: -0.04em;
@@ -158,23 +158,19 @@
 }
 
 @utility btn {
-  @apply inline-flex items-center justify-center px-6 py-3 font-bold text-xs uppercase tracking-widest transition-colors duration-300;
+  @apply inline-flex items-center justify-center px-6 py-3 font-bold text-xs uppercase tracking-widest transition-all duration-300 rounded-full;
 }
 
 @utility btn-primary {
-  @apply btn bg-primary-500 hover:bg-primary-dark text-white;
+  @apply btn bg-primary-500 hover:bg-primary-dark text-white shadow-md shadow-primary-500/20 hover:shadow-lg hover:shadow-primary-500/30;
 }
 
 @utility btn-secondary {
   @apply btn bg-text-main hover:bg-secondary-800 text-white;
 }
 
-@utility btn-accent {
-  @apply btn bg-accent-500 hover:bg-accent-600 text-white;
-}
-
 @utility btn-outline {
-  @apply btn border border-secondary-200 hover:bg-secondary-50 text-text-main;
+  @apply btn border-2 border-secondary-200 hover:border-secondary-300 hover:bg-secondary-50 text-text-main;
 }
 
 @utility container-custom {

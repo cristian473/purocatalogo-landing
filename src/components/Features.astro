@@ -1,55 +1,46 @@
 ---
+// Hero feature (large, spans 2 cols)
+const heroFeature = {
+  title: "Venta Directa por WhatsApp",
+  description: "Tu cliente entra al catálogo, elige lo que quiere, arma el pedido solo y te lo manda listo por WhatsApp. Vos solo despachas.",
+  icon: "chat",
+  color: "text-green-500"
+};
+
+// Secondary features (4 cards = fills 2 rows of 2 after hero, plus 1 row of 1 in lg:3-col grid)
 const features = [
-  {
-    title: "Venta Directa por WhatsApp",
-    description: "Tu cliente arma el pedido solo. A vos te llega listo para despachar.",
-    icon: "chat",
-    color: "green",
-    dark: false
-  },
   {
     title: "Cero Comisiones",
     description: "Vendé $100 o $10 millones: pagás lo mismo todos los meses.",
     icon: "payments",
-    color: "primary",
-    dark: true
+    color: "text-primary-500"
   },
   {
     title: "Fidelización y Login",
     description: "Tus clientes mayoristas ven sus precios y su historial. Sin que les mandes nada.",
     icon: "person_check",
-    color: "purple",
-    dark: false
+    color: "text-purple-500"
   },
   {
     title: "Gestión Multi-Usuario",
     description: "Tu equipo actualiza productos y stock desde su cuenta. Vos controlás todo.",
     icon: "groups",
-    color: "orange",
-    dark: false
+    color: "text-orange-500"
   },
   {
     title: "Integraciones a Medida",
     description: "Conectamos PuroCatálogo con tu sistema actual. ERP, facturación, lo que necesites.",
     icon: "api",
-    color: "primary",
-    dark: false
-  },
-  {
-    title: "Estabilidad Garantizada",
-    description: "Tu catálogo va a estar online siempre. Aunque te compartan el link 10.000 veces.",
-    icon: "shield",
-    color: "pink",
-    dark: false
+    color: "text-primary-500"
   }
 ];
 
-const colorClasses: Record<string, string> = {
-  green: "text-green-500",
-  primary: "text-primary-500",
-  purple: "text-purple-500",
-  orange: "text-orange-500",
-  pink: "text-pink-500"
+// Bottom banner feature (spans full width)
+const bannerFeature = {
+  title: "Estabilidad Garantizada",
+  description: "Tu catálogo va a estar online siempre. Aunque te compartan el link 10.000 veces.",
+  icon: "shield",
+  color: "text-pink-500"
 };
 ---
 
@@ -61,34 +52,61 @@ const colorClasses: Record<string, string> = {
         <h2 class="text-4xl font-extrabold text-text-main">Funciones que trabajan por vos.</h2>
         <p class="text-text-muted text-base font-medium">Desde el primer producto hasta el catálogo número 100.</p>
       </div>
-      <a class="text-primary-500 font-bold text-xs uppercase tracking-widest flex items-center gap-2 hover:gap-3 transition-all" href="#pricing">
-        Ver todas las funciones <span class="material-symbols-outlined text-sm" aria-hidden="true">arrow_forward</span>
-      </a>
     </div>
     
-    <!-- Feature Cards: Grid Layout -->
-    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+    <!-- Feature Grid: Hero card (2 cols) + 5 regular cards -->
+    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+      
+      <!-- Hero Feature: spans 2 columns -->
+      <div class="md:col-span-2 p-8 md:p-10 rounded-3xl bg-primary-50 border border-primary-100 shadow-lg shadow-primary-500/5 flex flex-col sm:flex-row gap-8 items-start">
+        <div class="w-16 h-16 rounded-2xl bg-primary-100 flex items-center justify-center flex-shrink-0">
+          <span class={`material-symbols-outlined text-3xl ${heroFeature.color}`} aria-hidden="true">
+            {heroFeature.icon}
+          </span>
+        </div>
+        <div class="flex-1">
+          <h3 class="text-2xl font-extrabold text-text-main mb-3">
+            {heroFeature.title}
+          </h3>
+          <p class="text-base leading-relaxed font-medium text-secondary-600 max-w-lg">
+            {heroFeature.description}
+          </p>
+        </div>
+      </div>
+
+      <!-- Regular Features (4 cards: fill row 1 remaining slot + full row 2) -->
       {features.map((feature) => (
-        <div class={`p-6 md:p-8 rounded-3xl border transition-colors duration-300 flex flex-col h-full ${
-          feature.dark 
-            ? 'bg-primary-50 border-primary-100 shadow-lg shadow-primary-500/5' 
-            : 'bg-white border-secondary-100 shadow-lg shadow-secondary-200/50'
-        }`}>
-          <div class={`w-12 h-12 rounded-2xl flex items-center justify-center mb-6 ${
-            feature.dark ? 'bg-primary-100' : 'bg-primary-50'
-          }`}>
-            <span class={`material-symbols-outlined text-2xl ${feature.dark ? 'text-primary-500' : colorClasses[feature.color]}`} aria-hidden="true">
+        <div class="p-6 md:p-8 rounded-3xl border border-secondary-100 bg-white shadow-lg shadow-secondary-200/50 flex flex-col h-full hover:border-secondary-200 hover:shadow-xl transition-all duration-300">
+          <div class="w-12 h-12 rounded-2xl bg-primary-50 flex items-center justify-center mb-6">
+            <span class={`material-symbols-outlined text-2xl ${feature.color}`} aria-hidden="true">
               {feature.icon}
             </span>
           </div>
-          <h3 class={`text-xl font-extrabold mb-3 ${feature.dark ? 'text-text-main' : 'text-text-main'}`}>
+          <h3 class="text-xl font-extrabold mb-3 text-text-main">
             {feature.title}
           </h3>
-          <p class={`text-sm leading-relaxed font-medium flex-1 ${feature.dark ? 'text-secondary-600' : 'text-secondary-500'}`}>
+          <p class="text-sm leading-relaxed font-medium flex-1 text-secondary-500">
             {feature.description}
           </p>
         </div>
       ))}
+
+      <!-- Banner Feature: spans full row -->
+      <div class="md:col-span-2 lg:col-span-3 p-6 md:p-8 rounded-3xl border border-secondary-100 bg-white shadow-lg shadow-secondary-200/50 flex flex-col sm:flex-row gap-6 items-center hover:border-secondary-200 hover:shadow-xl transition-all duration-300">
+        <div class="w-12 h-12 rounded-2xl bg-primary-50 flex items-center justify-center flex-shrink-0">
+          <span class={`material-symbols-outlined text-2xl ${bannerFeature.color}`} aria-hidden="true">
+            {bannerFeature.icon}
+          </span>
+        </div>
+        <div>
+          <h3 class="text-xl font-extrabold mb-1 text-text-main">
+            {bannerFeature.title}
+          </h3>
+          <p class="text-sm leading-relaxed font-medium text-secondary-500">
+            {bannerFeature.description}
+          </p>
+        </div>
+      </div>
     </div>
   </div>
 </section>

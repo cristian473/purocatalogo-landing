@@ -5,7 +5,7 @@ import Hero from '../components/Hero.astro';
 import Problem from '../components/Problem.astro';
 import Features from '../components/Features.astro';
 import UseCases from '../components/UseCases.astro';
-import HowItWorks from '../components/HowItWorks.astro';
+
 import Pricing from '../components/Pricing.astro';
 import Faq from '../components/Faq.astro';
 import Footer from '../components/Footer.astro';
@@ -29,6 +29,38 @@ const jsonLd = [
     "@type": "WebSite",
     "name": "PuroCatálogo",
     "url": "https://purocatalogo.com"
+  },
+  {
+    "@context": "https://schema.org",
+    "@type": "SoftwareApplication",
+    "name": "PuroCatálogo",
+    "url": "https://purocatalogo.com",
+    "applicationCategory": "BusinessApplication",
+    "operatingSystem": "Web",
+    "description": "Creá tu catálogo digital en minutos. Sin código, sin comisiones. Recibí pedidos por WhatsApp y vendé con tu propia marca.",
+    "offers": [
+      {
+        "@type": "Offer",
+        "name": "Inicial",
+        "price": "0",
+        "priceCurrency": "ARS",
+        "description": "Perfecto para probar la plataforma sin riesgos. 1 catálogo, hasta 15 productos."
+      },
+      {
+        "@type": "Offer",
+        "name": "Negocio Pro",
+        "price": "29900",
+        "priceCurrency": "ARS",
+        "description": "Para negocios que necesitan automatizar y fidelizar. Hasta 100 productos."
+      },
+      {
+        "@type": "Offer",
+        "name": "Empresa",
+        "price": "79900",
+        "priceCurrency": "ARS",
+        "description": "Nosotros nos encargamos de todo. Sin límites."
+      }
+    ]
   },
   {
     "@context": "https://schema.org",
@@ -106,7 +138,6 @@ const jsonLd = [
     <Problem />
     <Features />
     <UseCases />
-    <HowItWorks />
     <Pricing />
     <Faq />
   </main>

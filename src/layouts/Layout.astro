@@ -15,7 +15,7 @@ const {
   jsonLd,
 } = Astro.props;
 
-const ogImage = "/og-image.png";
+const ogImage = "/purocatalogo-og-image.png";
 const siteUrl = "https://purocatalogo.com";
 const canonicalUrl = new URL(Astro.url.pathname, siteUrl).href;
 ---
@@ -29,9 +29,12 @@ const canonicalUrl = new URL(Astro.url.pathname, siteUrl).href;
     <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png" />
     <link rel="icon" href="/favicon.ico" />
     <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png" />
+    <link rel="manifest" href="/site.webmanifest" />
     <link rel="canonical" href={canonicalUrl} />
     <meta name="generator" content={Astro.generator} />
     <meta name="description" content={description} />
+    <meta name="robots" content="index, follow" />
+    <meta name="theme-color" content="#026aeb" />
     <title>{title}</title>
 
     <!-- Open Graph -->
@@ -48,11 +51,19 @@ const canonicalUrl = new URL(Astro.url.pathname, siteUrl).href;
     <meta name="twitter:title" content={title} />
     <meta name="twitter:description" content={description} />
     <meta name="twitter:image" content={`${siteUrl}${ogImage}`} />
+    <!-- TODO: Descomentar y actualizar con la cuenta real de X/Twitter -->
+    <!-- <meta name="twitter:site" content="@purocatalogo" /> -->
+    <!-- <meta name="twitter:creator" content="@purocatalogo" /> -->
 
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
-    <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@400,0..1&display=swap" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <!-- Preload critical fonts -->
+    <link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Instrument+Sans:wght@400;500;600;700&display=swap" />
+    <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Instrument+Sans:wght@400;500;600;700&display=swap" rel="stylesheet" />
+    <!-- Material Symbols loaded async to avoid render-blocking -->
+    <link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@400,0..1&display=swap" />
+    <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@400,0..1&display=swap" rel="stylesheet" media="print" onload="this.media='all'" />
+    <noscript><link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@400,0..1&display=swap" rel="stylesheet" /></noscript>
     
     <!-- Structured Data -->
     {jsonLd && (
@@ -90,14 +101,14 @@ const canonicalUrl = new URL(Astro.url.pathname, siteUrl).href;
     </script>
     <script src="../scripts/transitions.js"></script>
 
-    <!-- Google Analytics 4 - loaded after content for better performance -->
-    <script async src="https://www.googletagmanager.com/gtag/js?id=G-916JX43JMM"></script>
+    <!-- Google tag (gtag.js) -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-1CCSV49JQF"></script>
     <script is:inline>
       window.dataLayer = window.dataLayer || [];
       function gtag(){dataLayer.push(arguments);}
       gtag('js', new Date());
-      gtag('config', 'G-916JX43JMM');
-      
+      gtag('config', 'G-1CCSV49JQF');
+
       window.trackEvent = function(eventName, eventParams) {
         gtag('event', eventName, eventParams || {});
       };
